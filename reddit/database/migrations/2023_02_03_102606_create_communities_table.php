@@ -18,11 +18,8 @@ return new class extends Migration
             $table->timestamps();
             $table->string('title');
             $table->text('description');
-            $table-> integer('user_id');
             $table->integer('followers');
-
-            //llave foranea
-            $table->foreign('user_id')->references('id')->on('users');
+            $table-> foreignId('user_id');
 
         });
 
