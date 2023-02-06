@@ -13,22 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('communities', function (Blueprint $table) {
+        Schema::create('likes', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string('title');
-            $table->text('description');
-            $table-> integer('user_id');
-            $table->integer('followers');
-
-            //llave foranea
-            $table->foreign('user_id')->references('id')->on('users');
-
         });
-
     }
-
- 
 
     /**
      * Reverse the migrations.
@@ -37,7 +26,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('communities');
+        Schema::dropIfExists('likes');
     }
 };
-

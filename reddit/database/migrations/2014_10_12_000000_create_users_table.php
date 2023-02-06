@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Follower;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -21,8 +22,14 @@ return new class extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
+            $table->unsignedBigInteger('rol_id');
+
+            //Llave foranea
+            $table->foreign('rol_id')->references('id')->on('rol');
         });
     }
+
+
 
     /**
      * Reverse the migrations.

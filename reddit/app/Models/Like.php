@@ -5,34 +5,27 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Comment extends Model
+class Like extends Model
 {
     use HasFactory;
-
-       //---------------------RELACIONES--------------------------
 
     //User
     public function user()
     {
         return $this->belongsTo(User::class);
     }
-    
-    //Community
-    public function community()
-    {
-        return $this->belongsTo(Community::class);
-    }
 
-    //Comment
+
+    //Post
     public function post()
     {
         return $this->belongsTo(Post::class);
     }
 
-    //Like
-    public function likes()
+    //Comment
+    public function comment()
     {
-        return $this->hasMany(Like::class);
+        return $this->belongsTo(Comment::class);
     }
 
 }

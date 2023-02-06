@@ -42,19 +42,42 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+ //---------------------RELACIONES--------------------------
     //Relaciones con otras clases
     //Post
-    public function posts(){
-        return $this->hasMany(Post::class);
+    
+      //Rol
+      public function role()
+      {
+          return $this->hasOne(Role::class);
+      }
+
+      //Post
+      public function posts()
+      {
+          return $this->hasMany(Post::class);
+      }
+
+      //Comment
+      public function comments()
+      {
+          return $this->hasMany(Comment::class);
+      }
+
+      //Community
+      public function communities()
+      {
+          return $this->belongsToMany(Community::class);
+      }
+
+    //Like
+    public function likes()
+    {
+        return $this->hasMany(Community::class);
     }
 
-    //
-    public function comments(){
-        return $this->hasMany(Post::class);
-    }
 
-    public function communities(){
-        return $this->hasMany(Post::class);
-    }
+    // --------------------------------------------------------------
+
 }
 

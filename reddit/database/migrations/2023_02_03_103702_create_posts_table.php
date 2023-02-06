@@ -18,14 +18,16 @@ return new class extends Migration
             $table->timestamps();
             $table->string('title')->nullable();
             $table->text('content')->nullable();
-            $table->integer('user_id');
-            $table->integer('community_id');
+            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('community_id');
 
             //Llave foranea
-            $table->foreign('user_id')->references('id')->on('users')->cascadeOnDelete;
+            $table->foreign('user_id')->references('id')->on('users'); 
+            $table->foreign('community_id')->references('id')->on('community');
         });
     }
 
+   
     /**
      * Reverse the migrations.
      *
