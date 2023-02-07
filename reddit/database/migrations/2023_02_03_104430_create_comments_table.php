@@ -17,14 +17,9 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
             $table->string('name');
-            $table->integer('user_id');
-            $table->integer('community_id');
-            $table->integer('post_id');
-
-            //Llave foranea
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('community_id')->references('id')->on('communities');
-            $table->foreign('post_id')->references('id')->on('posts');
+            $table->foreignId('user_id');
+            $table->foreignId('community_id');
+            $table->foreignId('post_id');
         });
 
         
