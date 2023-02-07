@@ -22,11 +22,8 @@ return new class extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
-            $table->unsignedBigInteger('rol_id');
-
-            //Llave foranea
-            $table->foreign('rol_id')->references('id')->on('rol');
-        });
+            $table->foreignId('role_id');
+                    });
     }
 
 

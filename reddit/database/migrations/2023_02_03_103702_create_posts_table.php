@@ -18,12 +18,8 @@ return new class extends Migration
             $table->timestamps();
             $table->string('title')->nullable();
             $table->text('content')->nullable();
-            $table->unsignedBigInteger('user_id');
-            $table->unsignedBigInteger('community_id');
-
-            //Llave foranea
-            $table->foreign('user_id')->references('id')->on('users'); 
-            $table->foreign('community_id')->references('id')->on('community');
+            $table->foreignId('user_id');
+            $table->foreignId('community_id');
         });
     }
 
