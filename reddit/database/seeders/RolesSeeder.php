@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use App\Models\Role; 
+
 class RolesSeeder extends Seeder
 {
     /**
@@ -14,19 +14,17 @@ class RolesSeeder extends Seeder
      */
     public function run()
     {
-        $rol1 = new Role;
-        $rol1->id=1;
-        $rol1->name="Moderador";
-        $rol1->save();
+        \App\Models\Role::factory(1)->create([
+            'name' => 'Visitante',
+         ]);
 
-        $rol2 = new Role;
-        $rol2->id=2;
-        $rol2->name="Registrado";
-        $rol2->save();
+         \App\Models\Role::factory(1)->create([
+            'name' => 'Registrado',
+         ]);
 
-        $rol3 = new Role;
-        $rol3->id=3;
-        $rol3->name="Invitado";
-        $rol3->save();
+         \App\Models\Role::factory(1)->create([
+            'name' => 'Administrador'
+         ]);
+
     }
 }

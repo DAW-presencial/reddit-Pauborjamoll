@@ -9,34 +9,16 @@ class Comment extends Model
 {
     use HasFactory;
 
-       protected $fillable = [
-        'content',
-    ];
-
-       //---------------------RELACIONES--------------------------
-
-    //User
+    //RELACIONES
+    //Uno a uno inversa
     public function user()
     {
         return $this->belongsTo(User::class);
     }
-    
-    //Community
-    public function community()
+    //
+     public function post()
     {
-        return $this->belongsTo(Community::class);
+        return $this->belongsToPost(Post::class);
     }
-
-    //Comment
-    public function post()
-    {
-        return $this->belongsTo(Post::class);
-    }
-
-    //Like
-    public function likes()
-    {
-        return $this->hasMany(Like::class);
-    }
-
 }
+

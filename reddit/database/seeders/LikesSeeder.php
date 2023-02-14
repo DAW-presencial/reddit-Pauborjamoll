@@ -15,16 +15,6 @@ class LikesSeeder extends Seeder
      */
     public function run()
     {
-        $like1 = new Like;
-        $like1->id=1;
-        $like1->positivos=10;
-        $like1->negativos=2;
-        $like1->save();
-
-        $like2 = new Like;
-        $like2->id=2;
-        $like2->positivos=100;
-        $like2->negativos=1;
-        $like2->save();
+        
     }
 }

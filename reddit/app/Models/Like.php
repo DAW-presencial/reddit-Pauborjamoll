@@ -9,23 +9,17 @@ class Like extends Model
 {
     use HasFactory;
 
-    //User
-    public function user()
+    //RELACIONES
+
+    //UNO A UNO
+    public function users()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsToMany(User::class);
     }
 
-
-    //Post
-    public function post()
+    public function posts()
     {
-        return $this->belongsTo(Post::class);
-    }
-
-    //Comment
-    public function comment()
-    {
-        return $this->belongsTo(Comment::class);
+        return $this->belongsToMany(Post::class);
     }
 
 }

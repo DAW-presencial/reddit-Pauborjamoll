@@ -16,8 +16,9 @@ class CommunityFactory extends Factory
      */
     public function definition()
     {
+      
         return [
-            //
+            'name'=> fake()->unique()->word(20)
         ];
     }
 }

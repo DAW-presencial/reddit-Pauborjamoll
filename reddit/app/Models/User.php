@@ -31,6 +31,7 @@ class User extends Authenticatable
     protected $hidden = [
         'password',
         'remember_token',
+        'role'
     ];
 
     /**
@@ -44,38 +45,29 @@ class User extends Authenticatable
 
  //---------------------RELACIONES--------------------------
     //Relaciones con otras clases
-    //Post
-    
-      //Rol
-      public function role()
+    //Relaciones uno a uno
+      public function rol()
       {
-          return $this->hasOne(Role::class);
+          return $this->hasOne(Rol::class);
       }
 
-      //Post
+    //Relaciones uno a muchos
       public function posts()
       {
           return $this->hasMany(Post::class);
       }
 
-      //Comment
-      public function comments()
+      public function likes()
       {
-          return $this->hasMany(Comment::class);
+          return $this->hasMany(Like::class);
       }
 
-      //Community
+    //Relacion uno a muchos inversa
+    
       public function communities()
       {
           return $this->belongsToMany(Community::class);
       }
-
-    //Like
-    public function likes()
-    {
-        return $this->hasMany(Community::class);
-    }
-
 
     // --------------------------------------------------------------
 

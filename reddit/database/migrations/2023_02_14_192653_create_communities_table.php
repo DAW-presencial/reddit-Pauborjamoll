@@ -16,16 +16,15 @@ return new class extends Migration
         Schema::create('communities', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string('title');
-            $table->text('description');
-            $table->integer('followers');
-            $table-> foreignId('user_id');
 
+            //Mis tablas
+            $table->string('name');
+
+            //Foreign Keys
+            $table->foreignId('user_id');
+          
         });
-
     }
-
- 
 
     /**
      * Reverse the migrations.
@@ -37,4 +36,3 @@ return new class extends Migration
         Schema::dropIfExists('communities');
     }
 };
-

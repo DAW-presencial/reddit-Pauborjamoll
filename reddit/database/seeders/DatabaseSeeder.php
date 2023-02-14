@@ -16,15 +16,11 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
         $this->call([
-            RolesSeeder::class,
             UsersSeeder::class,
-            CommunitiesSeeder::class,
             PostsSeeder::class,
-            CommentsSeeder::class,
-            LikesSeeder::class,
 
         ]);
-        Post::factory(10)->create();
+        //Post::factory(10)->create();
         // \App\Models\User::factory()->create([
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',

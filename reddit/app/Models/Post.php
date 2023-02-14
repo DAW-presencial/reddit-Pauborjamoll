@@ -9,37 +9,22 @@ class Post extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
-        'title',
-        'content',
-    ];
-     //---------------------RELACIONES--------------------------
+    //RELACIONES
 
-    //User
+    //Uno a uno
     public function user()
     {
-        return $this->belongsTo(User::class);
+        return $this->hasOne(User::class);
     }
-    
-    //Community
+
     public function community()
     {
         return $this->belongsTo(Community::class);
     }
 
-    //Comment
+    //Uno a muchos
     public function comments()
     {
-        return $this->hasMany(Comment::class);
+        return $this->hasMany(Comments::class);
     }
-
-    //Like
-    public function likes()
-    {
-        return $this->hasMany(Like::class);
-    }
-
-
-
-    //---------------------------------------------------------------
 }

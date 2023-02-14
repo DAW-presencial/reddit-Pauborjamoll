@@ -16,15 +16,15 @@ return new class extends Migration
         Schema::create('comments', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string('name');
+
+            //Mis tablas
+            $table->longText('body');
+
+            //Foreign Keys
             $table->foreignId('user_id');
-            $table->foreignId('community_id');
             $table->foreignId('post_id');
         });
-
-        
     }
-
 
     /**
      * Reverse the migrations.

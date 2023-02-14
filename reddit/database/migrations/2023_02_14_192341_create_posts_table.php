@@ -16,14 +16,26 @@ return new class extends Migration
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string('title')->nullable();
-            $table->text('content')->nullable();
-            $table->foreignId('user_id');
-            $table->foreignId('community_id');
+
+            //Mis tablas
+            $table->text('title');
+            $table->string('slug');
+            $table->longText('body');
+
+            //Foregin Keys
+            $table->foreignId('community_id')
+                ->onDelete('cascade')
+                ->nullable()
+                ->constraint();
+            
+            $table->foreignId('user_id')
+                ->onDelete('SET NULL')
+                ->nullable()
+                ->constraint();
+
         });
     }
 
-   
     /**
      * Reverse the migrations.
      *

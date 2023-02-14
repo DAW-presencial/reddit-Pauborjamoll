@@ -16,8 +16,20 @@ return new class extends Migration
         Schema::create('likes', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->Biginteger('positivos');
-            $table->Biginteger('negativos');
+
+            //Mis tablas
+            $table->enum('value',['1','-1', null])->default(null);
+
+            //Foreign Keys
+            $table->foreignId('post_id')
+                ->onDelete('cascade')
+                ->nullable()
+                ->constraint();
+            
+            $table->foreignId('user_id')
+                ->onDelete('SET NULL')
+                ->nullable()
+                ->constraint();
         });
     }
 

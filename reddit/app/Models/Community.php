@@ -9,25 +9,16 @@ class Community extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
-        'title',
-        'description',
-    ];
-
-       
-    //---------------------RELACIONES--------------------------
-    //User
+    //RELACIONES
+    //Uno a uno
     public function users()
     {
-        return $this->hasMany(User::class);
+        return $this->belongsTo(User::class);
     }
 
-   //Post
-   public function posts()
-   {
-       return $this->hasMany(Post::class);
-   }
-
- 
-   //-----------------------------------------------------------------
+    public function posts()
+    {
+        return $this->hasMany(Post::class);
+    }
 }
+

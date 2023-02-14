@@ -2,6 +2,8 @@
 
 namespace Database\Factories;
 
+use App\Models\Post;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,7 +19,11 @@ class LikeFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'value'=> fake() -> randomElement(['1','-1', null]),
+
+            //Foreign Keys
+            'user_id'=> User::all()->random()->id,
+            'post_id' => Post::all()->random()->id,
         ];
     }
 }
