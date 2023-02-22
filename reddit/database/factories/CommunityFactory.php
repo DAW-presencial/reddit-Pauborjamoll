@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,8 +18,11 @@ class CommunityFactory extends Factory
     public function definition()
     {
       
+        $name = $this->faker->unique()->word(20);
         return [
-            'name'=> fake()->unique()->word(20)
+            'name' => $name,
+            // 'description' => $this->faker->sentence(),
+            'user_id' => User::all()->random()->id,
         ];
     }
 }
